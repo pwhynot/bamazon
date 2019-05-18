@@ -11,6 +11,22 @@ const connection = mysql.createConnection({
 
 connection.connect(function(err){
 	console.log("Connected as id: " + connection.threadId);
-	 
+	 findProducts();
 });
 
+const findProducts = function() {
+    const query = "SELECT * FROM products";
+    connection.query(query, function(err, res) {
+        console.log('\n');
+        for (var i = 0; i < res.length; i++) {
+            console.log("Item ID:  " + res[i].item_id + " Product Name: " + res[i].product_name + 
+            " Department: " + res[i].department_name + " Price: " + res[i].price + " Quanity: " 
+            + res[i].stock_quantity);
+        }
+    });
+    selectProduct();
+};
+
+const selectProduct = function() {
+    
+}
