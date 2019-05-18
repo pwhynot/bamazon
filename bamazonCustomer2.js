@@ -63,8 +63,8 @@ const selectProduct = function() {
             connection.query("SELECT * FROM products WHERE ?", [{item_id: answer.id}], function(err, data) { 
                 if (err) throw err;
                 if (data[0].stock_quantity < IntItem) {
-                console.log("Sorry, the quanity selected is currently not availible, please select a lesser quanity");
-                searchDatabase();
+                console.log("Insufficient quantity!");
+                findProducts();
                 }   
                 else {
                     const newQuantity = data[0].stock_quantity - IntItem;
@@ -74,7 +74,7 @@ const selectProduct = function() {
                         if (err) throw err;
                         else {
                             console.log("Congrats on your purchase! Your total cost is $"+ totalPrice);
-                            
+                            buyMoreProducts();
                         }
                     });  
                 }
@@ -82,3 +82,21 @@ const selectProduct = function() {
         });
 }
 
+const buyMoreProducts = function() {
+    inquirer.prompt({
+        type: "confirm",
+        message: "Make another Purchase?",
+        name: "confirm",
+        default: true
+    
+        }).then(function(answer) {
+            if (answer.confirm)
+            {
+                findProducts();
+            }
+            else {
+                console.log("Please come back again!")
+            }
+            
+        });
+}
