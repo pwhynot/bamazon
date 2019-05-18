@@ -7,3 +7,4 @@ VALUES(1, "A7sII", "Cameras", 1998.00, 20),
 (5, "Scarlet-W Dragon 5k", "Cameras", 19950.00, 5),
 (6, "Phantom Flex 4k", "Cameras", 40000.00, 3),
 (7, "Monstro 8k", "Cameras", 59950.00, 2);
+
