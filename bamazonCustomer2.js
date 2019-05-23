@@ -33,7 +33,7 @@ const selectProduct = function() {
         type: "input",
         message: "Select Item ID of Product you would like to buy?",
         validate: function(value) {
-            if (isNaN(value) == false) {
+            if (isNaN(value) === false) {
                 return true;
 
             } else {
@@ -48,7 +48,7 @@ const selectProduct = function() {
         type: "input",
         message: "How many would you like to buy?",
         validate: function(value) { 
-            if (isNaN(value) == false) {                
+            if (isNaN(value) === false) {                
                 return true;
             } else {        
                 console.log("\nPlease enter total\n");
